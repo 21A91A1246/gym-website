@@ -2,6 +2,7 @@ import React from "react";
 import ChooseUs from "./chooseus";
 import Price from "./price";
 import Banner from "./banner";
+import GetInTouch from "./getintouch";
 import coverImage from "../assets/images/cover.jpg"; 
 const Home = () => {
   return (
@@ -34,6 +35,7 @@ const Home = () => {
     <ChooseUs/>
     <Banner/>
     <Price/>
+    <GetInTouch/>
     </div>
   );
 };

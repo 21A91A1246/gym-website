@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import gymlogo from "../assets/images/gymlogo.png";
-
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -16,10 +16,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-900 text-gray-300">
+    <nav className="bg-gray-900 text-gray-300 fixed top-0 left-0 w-full z-50 shadow-lg">
       <div className="container mx-auto px-4 flex items-center justify-between py-4">
         {/* Logo */}
-        <img src={gymlogo} alt="logo" className="w-50 h-10"></img>
+        <Link to="/">
+          <img src={gymlogo} alt="logo" className="w-50 h-10" />
+        </Link>
 
         {/* Hamburger Menu (Mobile) */}
         <button
@@ -31,26 +33,26 @@ const Navbar = () => {
 
         {/* Menu */}
         <ul
-          className={`absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent md:flex space-y-4 md:space-y-0 md:space-x-6 font-medium ${
+          className={`absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent md:flex space-y-4 md:space-y-0 md:space-x-6 font-medium transition-all ${
             isMenuOpen ? "block" : "hidden"
           } md:block`}
         >
           {[
-            "Home",
-            "About Us",
-            "Classes",
-            "Services",
-            "Our Team",
-            "Pages",
-            "Contact",
+            { name: "Home", path: "/" },
+            { name: "About Us", path: "/about-us" },
+            { name: "Classes", path: "/classes" },
+            { name: "Services", path: "/services" },
+            { name: "Our Team", path: "/team" },
+            { name: "Contact", path: "/contact" },
           ].map((item, index) => (
             <li key={index} className="text-center md:text-left">
-              <a
-                href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+              <Link
+                to={item.path}
                 className="block py-2 px-4 hover:text-blue-400 transition-colors"
+                onClick={() => setIsMenuOpen(false)} // Close menu after selection in mobile
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             </li>
           ))}
 
