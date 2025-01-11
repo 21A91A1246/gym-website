@@ -18,7 +18,7 @@ const Contact = () => {
                       <div className="relative h-full flex items-center justify-center text-center">
                         <div className="text-white px-4 max-w-2xl">
                           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                             About Us
+                             Contact Us
                           </h1>
                           <p className="text-lg md:text-xl mb-6">
                             Discover the best classes, services, and experiences tailored just
@@ -28,7 +28,7 @@ const Contact = () => {
                         </div>
                       </div>
                     </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 mt-10 gap-8 px-10">
           {/* Contact Details */}
           <div>
             <div className="text-center lg:text-left mb-8">

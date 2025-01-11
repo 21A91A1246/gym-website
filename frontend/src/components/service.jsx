@@ -1,9 +1,11 @@
 import React from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 import aboutImage from "../assets/images/cover.jpg"; 
 import service1 from "../assets/images/services-1.jpg";
 import service2 from "../assets/images/services-2.jpg";
 import service3 from "../assets/images/services-3.jpg";
 import service4 from "../assets/images/services-4.jpg";
+import Price from "./price";
 
 const Services = () => {
   const services = [
@@ -38,9 +40,9 @@ const Services = () => {
   ];
 
   return (
-    <section className="services-section  bg-gray-100">
-      <div className=" mx-auto ">
-      <div
+    <section className="services-section bg-gray-100">
+      <div className="mx-auto">
+        <div
           className="relative h-screen bg-cover bg-center"
           style={{
             backgroundImage: `url(${aboutImage})`,
@@ -48,18 +50,17 @@ const Services = () => {
         >
           {/* Overlay */}
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-    
+
           {/* Content */}
           <div className="relative h-full flex items-center justify-center text-center">
             <div className="text-white px-4 max-w-2xl">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                  About Us
+                Services
               </h1>
               <p className="text-lg md:text-xl mb-6">
                 Discover the best classes, services, and experiences tailored just
                 for you.
               </p>
-              
             </div>
           </div>
         </div>
@@ -73,9 +74,12 @@ const Services = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={service.id}
               className="bg-white shadow-lg rounded-lg overflow-hidden"
+              initial={{ opacity: 0, y: 50 }} // Initial state
+              animate={{ opacity: 1, y: 0 }} // Final state
+              transition={{ duration: 0.5, delay: index * 0.2 }} // Transition with delay for staggered effect
             >
               <img
                 src={service.image}
@@ -96,9 +100,10 @@ const Services = () => {
                   Explore
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
+        <Price />
       </div>
     </section>
   );
