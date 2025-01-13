@@ -69,12 +69,13 @@ const Navbar = () => {
                 </button>
               </div>
             ) : (
+              <Link to={"/login"}> 
               <button
                 className="py-1 px-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-                onClick={handleLogin}
+                 
               >
                 Login
-              </button>
+              </button></Link>
             )}
           </li>
         </ul>
