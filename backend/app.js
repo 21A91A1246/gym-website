@@ -19,14 +19,14 @@ app.use(express.json())
 mongoose.connect('mongodb+srv://21a91a6152:5iMnwbIzmNfZeN7T@cluster0.62duw.mongodb.net/gym?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 4000, // Timeout after 5 seconds
+    serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds
   })
-  .then(() => console.log("Connected to Database & Listening on localhost:4000"))
+  .then(() => console.log("Connected to Database & Listening on localhost:5000"))
   .catch(err => console.error("Database connection error:", err));
   
  
  
-var server = app.listen(4000) 
+var server = app.listen(5000) 
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
