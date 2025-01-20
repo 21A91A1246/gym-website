@@ -100,7 +100,7 @@ const handleLoginSubmit = async (e) => {
     try {
       // Make POST request to the login endpoint
       const response = await axios.post(
-        "http://localhost:4000/login",
+        "https://gym-website-phug.onrender.com/login",
         formDataL
       );
 
@@ -159,7 +159,7 @@ const handleLoginSubmit = async (e) => {
     
           // Make the POST request
           const response = await axios.post(
-            "http://localhost:4000/signup",
+            "https://gym-website-phug.onrender.com/signup",
             formData // Pass formData directly
           );
     
@@ -199,7 +199,7 @@ const handleLoginSubmit = async (e) => {
     const handleForgotSubmit = (e) => {
       e.preventDefault();
       if(validateForgotForm()){
-      axios.put('http://localhost:4000/forgot', {formDataF})
+      axios.put('https://gym-website-phug.onrender.com/forgot', {formDataF})
           .then((res) => {
               Swal.fire({
                   title: "Success",
