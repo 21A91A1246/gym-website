@@ -100,7 +100,7 @@ const handleLoginSubmit = async (e) => {
     try {
       // Make POST request to the login endpoint
       const response = await axios.post(
-        "http://localhost:5000/login",
+        "http://localhost:4000/login",
         formDataL
       );
 
@@ -159,7 +159,7 @@ const handleLoginSubmit = async (e) => {
     
           // Make the POST request
           const response = await axios.post(
-            "http://localhost:5000/signup",
+            "http://localhost:4000/signup",
             formData // Pass formData directly
           );
     
@@ -199,7 +199,7 @@ const handleLoginSubmit = async (e) => {
     const handleForgotSubmit = (e) => {
       e.preventDefault();
       if(validateForgotForm()){
-      axios.put('http://localhost:5000/forgot', {formDataF})
+      axios.put('http://localhost:4000/forgot', {formDataF})
           .then((res) => {
               Swal.fire({
                   title: "Success",

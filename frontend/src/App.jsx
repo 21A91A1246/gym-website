@@ -8,12 +8,37 @@ import Contact from "./components/contact";
 import MyTeam from "./components/myteam";
 import ClassDetails from "./components/classes";
 import SignIn from './components/login';
+import { useState ,useEffect} from 'react';
 function App() {
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      setUser(userData);
+    }
+  }, []);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    Boolean(localStorage.getItem("userData"))
+  );
+
+  // Function to handle logout
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    setIsAuthenticated(false); // Update the state
+  };
+
+  // Function to handle login (optional for SignIn integration)
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
  
   return (
     <>
       <Router>
-            <Navbar  />
+      {isAuthenticated ? (
+        <> 
+            <Navbar onLogout={handleLogout} />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about-us" element={<About />} />
@@ -24,6 +49,13 @@ function App() {
               <Route path='/login' element={<SignIn/>}/>
             </Routes>
             <Footer />
+            </>
+          ) : (
+            <Routes>
+              <Route path="/login" element={<SignIn onLogin={handleLogin} />} />
+              <Route path="*" element={<Navigate to="/login" />} /> {/* Redirect to login */}
+            </Routes>
+          )}
           
       </Router>
     </>

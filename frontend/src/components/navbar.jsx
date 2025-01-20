@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import gymlogo from "../assets/images/gymlogo.png";
 
 const Navbar = () => {
@@ -7,13 +8,20 @@ const Navbar = () => {
   const [username, setUsername] = useState("John Doe");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
+    onLogout(); // Trigger the parent App's logout handler
+    navigate("/login");
   };
+  useEffect(() => {
+    const userDataString = localStorage.getItem("userData");
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      setIsLoggedIn(true);
+      setUsername(userData);
+    }
+  }, []);
 
   return (
     <nav className="bg-gray-900 text-gray-300 fixed top-0 left-0 w-full z-50 shadow-lg">
@@ -57,12 +65,12 @@ const Navbar = () => {
           ))}
 
           {/* Login / Logout Section */}
-          <li className="text-center md:text-left">
+          <li className="text-center md:text-left ">
             {isLoggedIn ? (
-              <div className="flex items-center justify-center md:justify-start space-x-4">
+              <div className="flex items-center justify-center md:justify-start space-x-1">
                 <span className="text-sm">{username}</span>
                 <button
-                  className="py-1 px-3 bg-red-500 text-white rounded hover:bg-red-600 transition"
+                  className="py-1 px-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
                   onClick={handleLogout}
                 >
                   Logout
