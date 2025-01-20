@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import gymlogo from "../assets/images/gymlogo.png";
 
-const Navbar = () => {
+const Navbar = ({ onLogout }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("John Doe");
   const [isMenuOpen, setIsMenuOpen] = useState(false);

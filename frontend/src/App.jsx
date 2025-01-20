@@ -53,6 +53,7 @@ function App() {
         </>
       ) : (
         <Routes>
+          
           <Route path="/login" element={<SignIn onLogin={handleLogin} />} />
           <Route path="*" element={<Navigate to="/login" />} /> {/* Redirect to login */}
         </Routes>
