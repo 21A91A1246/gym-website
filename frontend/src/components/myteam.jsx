@@ -1,5 +1,7 @@
 import React from "react";
 import aboutImage from "../assets/images/cover.jpg"; 
+import Loader from "./Loader";
+import { useEffect,useState} from "react";
 
 const teamMembers = [
   {
@@ -77,7 +79,21 @@ const teamMembers = [
 ];
 
 const MyTeam = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+      const timer = setTimeout(() => {
+          setLoading(false);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+  }, []);
+
+  const [isLoading, setIsloading] = useState(false);
   return (
+    <>
+    {loading ? <Loader /> :
+
     <section className="bg-gray-100 py-12">
       <div className=" mx-auto    ">
         <div
@@ -149,6 +165,8 @@ const MyTeam = () => {
         </div>
       </div>
     </section>
+     }
+    </>
   );
 };
 

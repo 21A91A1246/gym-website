@@ -5,8 +5,21 @@ import Price from "./price";
 import Banner from "./banner";
 import GetInTouch from "./getintouch";
 import coverImage from "../assets/images/cover.jpg";
+import Loader from "./Loader";
+import { useState,useEffect } from "react";
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+  
+        return () => clearTimeout(timer);
+    }, []);
+  
+    const [isLoading, setIsloading] = useState(false);
   // Animation Variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
@@ -14,6 +27,9 @@ const Home = () => {
   };
 
   return (
+    <>
+    {loading ? <Loader /> :
+
     <div>
       {/* Hero Section */}
       <div
@@ -110,6 +126,8 @@ const Home = () => {
         <GetInTouch />
       </motion.div>
     </div>
+    }
+    </>
   );
 };
 

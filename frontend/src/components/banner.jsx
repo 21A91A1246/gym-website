@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import coverImage from "../assets/images/cover1.jpg";  // Ensure correct path to image
 
 const Banner = () => {
@@ -16,12 +17,13 @@ const Banner = () => {
         <div className="text-center text-white">
           <h2 className="text-4xl font-bold mb-4">Registration now to get more deals</h2>
           <div className="text-lg mb-6">Where health, beauty, and fitness meet.</div>
+          <Link to="./bookapointment"> 
           <a
             href="#"
             className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition-all"
           >
             Appointment
-          </a>
+          </a></Link>
         </div>
       </div>
     </section>

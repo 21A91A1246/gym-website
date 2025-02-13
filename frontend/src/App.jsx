@@ -8,6 +8,7 @@ import Contact from "./components/contact";
 import MyTeam from "./components/myteam";
 import ClassDetails from "./components/classes";
 import SignIn from './components/login';
+import GymAppointmentBooking from './components/appoinment';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/team" element={<MyTeam />} />
             <Route path="/classes" element={<ClassDetails />} />
+            <Route path="/bookapointment" element={<GymAppointmentBooking/>}/>
             <Route path="/login" element={<SignIn />} />
           </Routes>
           <Footer />

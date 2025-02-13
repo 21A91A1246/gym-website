@@ -41,7 +41,7 @@ const Navbar = ({ onLogout }) => {
 
         {/* Menu */}
         <ul
-          className={`absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent md:flex space-y-4 md:space-y-0 md:space-x-6 font-medium transition-all ${
+          className={`absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent md:flex space-y-4 md:space-y-0 md:space-x-2 font-medium transition-all ${
             isMenuOpen ? "block" : "hidden"
           } md:block`}
         >
