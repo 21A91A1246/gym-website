@@ -8,6 +8,9 @@ import Contact from "./components/contact";
 import MyTeam from "./components/myteam";
 import ClassDetails from "./components/classes";
 import SignIn from './components/login';
+import WorkoutTips from './components/tips';
+import Motivation from './components/motivation';
+import FullBodyExercises from './components/FullBodyExercises';
 import GymAppointmentBooking from './components/appoinment';
 import { useState, useEffect } from 'react';
 
@@ -50,6 +53,9 @@ function App() {
             <Route path="/classes" element={<ClassDetails />} />
             <Route path="/bookapointment" element={<GymAppointmentBooking/>}/>
             <Route path="/login" element={<SignIn />} />
+            <Route path="/motivation" element={<Motivation/>}/>
+            <Route path="/tips" element={<WorkoutTips/>}/>
+            <Route path="/fullbodyexercises" element={<FullBodyExercises/>}/>
           </Routes>
           <Footer />
         </>
